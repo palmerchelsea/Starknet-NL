@@ -1,0 +1,29 @@
+StarkNet Glossarium Dit glossarium geeft definities voor kernbegrippen en termen met betrekking tot StarkNet, waarbij hun onderlinge relaties worden geïllustreerd. Er wordt uitgegaan van een fundamenteel begrip van StarkNet en Cairo.
+
+Applicatieontwikkelaars: Individuen of entiteiten die StarkNet gebruiken om StarkNet-toepassingen te creëren. Ze zijn verantwoordelijk voor het ontwikkelen en implementeren van zowel StarkNet- als Ethereum-contracten.
+
+Blokken (voorheen batches genoemd): Geordende sets StarkNet-transacties die worden uitgevoerd via het StarkNet-besturingssysteem (OS), resulterend in een geconsolideerde wijziging van de staat die wordt vastgelegd in het StarkNet L1-kerncontract. Een blok bestaat uit:
+
+Blokhach: Een unieke, stabiele identificator voor het verwijzen naar en opvragen van het blok. Bloknr: Een ordinaal getal dat de positie van het blok in de reeks geaccepteerde StarkNet-blokken aangeeft. Merk op dat het nummer van een blok in de loop van de tijd kan veranderen en dat hetzelfde nummer kan corresponderen met verschillende blokken in gevallen van herordering van de L1-keten. Volledige-staatsknooppunt: Een knooppunt binnen het StarkNet-netwerk dat exclusief is ontworpen voor het bevragen van de huidige StarkNet-staat. Het kan zelfstandig reageren op vragen over de huidige StarkNet-netwerkstaat, inclusief L1-staat, zonder extra knooppunten te hoeven bevragen. Belangrijk is dat het niet betrokken is bij het bundelen van transacties of het verstrekken van batchbewijzen.
+
+Prover: Een afzonderlijk proces, dat een online service kan zijn of een intern onderdeel van een knooppunt, verantwoordelijk voor het ontvangen van de output van Cairo-programma’s en het genereren van STARK-bewijzen voor latere verificatie. De Prover dient deze STARK-bewijzen in bij de verificateur, die deze informatie op L1 registreert.
+
+StarkNet-toepassing: Een verzameling contracten die zowel L1- als L2-componenten omvatten en samen een specifiek bedrijfsproces of workflow implementeren.
+
+StarkNet-contract: Het programma dat de bedrijfslogica van een geïmplementeerde toepassing codeert. Dit omvat de gegevensstructuren van de toepassing en de verwerking van specifieke transacties die door gebruikers worden geïnitieerd. Het StarkNet-contract definieert in feite de geldige staatswijzigingen voor de toepassing.
+
+StarkNet-accountcontracten: Gezien de abstractie van gebruikersaccounts op protocolniveau moeten sommige contracten het concept van gebruikersaccounts implementeren. Deze worden Accountcontracten genoemd en hun precieze implementatie varieert tussen contracten. Technisch gezien zijn dit StarkNet-contracten geïmplementeerd in Cairo.
+
+StarkNet L1-kerncontract: Dit L1-contract definieert de staat van het systeem door het commitment voor de L2-staat en de hash van het StarkNet OS-programma op te slaan, waarmee effectief de versie van StarkNet in gebruik wordt gespecificeerd. De vastgelegde staat in het L1-kerncontract fungeert als het consensusmechanisme van StarkNet, beveiligd door de L1 Ethereum-consensus. Naast het onderhouden van de staat speelt het StarkNet L1-kerncontract een centrale rol in StarkNet-operaties op L1, inclusief:
+
+Het bijhouden van de lijst van toegestane verificateurs (contracten) voor het verifiëren van transacties voor het bijwerken van de staat. Het faciliteren van L1 ↔ L2-interacties.
+
+StarkNet OS: Verantwoordelijk voor het bijwerken van de L2-staat van het systeem op basis van inkomende transacties, waardoor de uitvoering van StarkNet-contracten (op basis van Cairo) mogelijk wordt gemaakt. Het OS fungeert als het programma waarvan de uitvoer wordt bewezen en geverifieerd met behulp van het STARK-bewijsysteem. Specifieke systeemoperaties en functionaliteiten die beschikbaar zijn voor StarkNet-contracten zijn toegankelijk via oproepen naar het OS.
+
+StarkNet-sequentieknooppunt: Het belangrijkste knooppunt in het StarkNet-netwerk dat kerntaaksequenceringsfuncties uitvoert. Het voert het StarkNet OS Cairo-programma uit met de vereiste invoer, bewijst het resultaat met behulp van de Proving-service of een interne STARK-prover, en werkt uiteindelijk de netwerkstaat bij in het StarkNet-kerncontract.
+
+StarkNet-staat: De StarkNet-staat omvat zowel contractcode als contractopslag.
+
+StarkNet-transactie: Een oproep van specifieke staatsovergangslogica gedefinieerd door een contract. Een transactie heeft een goed gedefinieerde structuur, inclusief alle benodigde metadata en een willekeurige gegevenslading. De semantiek van een transactie wordt bepaald door het aangeroepen contract.
+
+StarkNet-gebruikers: Individuen of geautomatiseerde agenten die interageren met StarkNet-sequentieknooppunten en, indien nodig, L1-contracten. Deze gebruikers sturen transacties naar het StarkNet-netwerk.
